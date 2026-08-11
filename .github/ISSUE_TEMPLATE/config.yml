@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Documentation
+    url: https://docs.tagaris.co.uk
+    about: Install guides, configuration reference and troubleshooting.
+  - name: Live demo
+    url: https://demo.tagaris.co.uk
+    about: Try Tagaris in the browser before installing.
+  - name: Website and pricing
+    url: https://tagaris.co.uk
+    about: Product overview, pricing and contact details.
