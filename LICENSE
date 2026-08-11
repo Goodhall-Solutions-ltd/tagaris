@@ -1,0 +1,15 @@
+Tagaris is proprietary software.
+
+Copyright (c) 2026 Goodhall Solutions Ltd. All rights reserved.
+
+Use of Tagaris is governed by the Tagaris Terms of Use, which include the
+End User Licence Agreement: https://tagaris.co.uk/terms.html
+
+The free tier is licensed for use at no charge under the same terms. Paid
+tiers require a valid licence key. You may run Tagaris on your own
+infrastructure as permitted by the terms. You may not redistribute it,
+resell it, sublicense it, or circumvent the licence check or seat limits.
+
+The deployment files in this repository (compose files, environment
+templates and documentation) may be freely copied and adapted for the
+purpose of deploying Tagaris.

@@ -1,0 +1,52 @@
+# Tagaris, single-container variant run with Compose. One service: the app with
+# an in-image PostgreSQL database, so there is no separate database container.
+#
+# Save this file as docker-compose.yml (or keep the name and pass -f), then:
+#   docker compose up -d
+#
+# For a normal Docker host the two-container stack in example-docker-compose.yml
+# is the recommended option: keeping the database in its own container leaves
+# its major-version upgrades to the official postgres image. Use this file when
+# you want everything in one container and one set of volumes but still manage
+# it with Compose. Settings are read from an .env file next to this one. Full
+# guide: https://docs.tagaris.co.uk/self-host-bundled
+
+services:
+  app:
+    image: goodhallsolutions/tagaris-bundled:latest
+    restart: unless-stopped
+    environment:
+      BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET:-change_me_generate_with_openssl_rand_base64_32}
+      BETTER_AUTH_URL: ${BETTER_AUTH_URL:-http://localhost:3000}
+      # Optional extra origins allowed to make auth requests, comma-separated,
+      # on top of BETTER_AUTH_URL (for reaching the instance over the LAN by IP,
+      # for example). Leave BETTER_AUTH_URL as the canonical URL so single
+      # sign-on redirects stay correct.
+      BETTER_AUTH_TRUSTED_ORIGINS: ${BETTER_AUTH_TRUSTED_ORIGINS:-}
+      SSO_ISSUER: ${SSO_ISSUER:-}
+      SSO_CLIENT_ID: ${SSO_CLIENT_ID:-}
+      SSO_CLIENT_SECRET: ${SSO_CLIENT_SECRET:-}
+      SSO_PROVIDER_NAME: ${SSO_PROVIDER_NAME:-}
+      # Hard kill switch for the REST API at /api/v1. Default on. Set to "false"
+      # to disable the programmatic API install-wide.
+      API_ENABLED: ${API_ENABLED:-true}
+      # Timezone for scheduled jobs (daily digest, backups, syncs).
+      TZ: ${TZ:-Europe/London}
+    ports:
+      - "3000:3000"
+    volumes:
+      # One volume holds the built-in database and asset photos; back it up.
+      - data:/app/data
+      - uploads:/app/uploads
+    healthcheck:
+      # Use 127.0.0.1, not localhost: busybox wget resolves localhost to IPv6
+      # (::1) while the app binds IPv4, which shows a healthy app as unhealthy.
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/api/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+
+volumes:
+  data:
+  uploads:
