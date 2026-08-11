@@ -1,2 +1,2 @@
 # Never commit real settings; .env holds the database password and auth secret.
-.en
+.env
