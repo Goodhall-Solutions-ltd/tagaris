@@ -73,8 +73,8 @@ Bug reports and feature requests are welcome in [issues](https://github.com/good
 - Website and pricing: https://tagaris.co.uk
 - Live demo: https://demo.tagaris.co.uk
 - Documentation: https://docs.tagaris.co.uk
-- Docker Hub: https://hub.docker.com/r/goodhallsolutions/tagaris
-
+- Docker Hub Standard: https://hub.docker.com/r/goodhallsolutions/tagaris
+- Docker Hub Bundled: https://hub.docker.com/r/goodhallsolutions/tagaris-bundled
 ## Licence
 
 The deployment files in this repository may be freely copied and adapted. The Tagaris application is proprietary software from Goodhall Solutions; the free tier is licensed for use at no charge, and paid tiers add the team features. See [LICENSE](LICENSE) and the full terms at https://tagaris.co.uk/terms.html.
