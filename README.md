@@ -1,8 +1,8 @@
 # Tagaris
 
-Self-hosted IT asset register for small IT teams, MSPs and homelabbers. Track hardware, software licences, warranties, stock and assignments, and know where everything is.
+Self-hosted IT asset management for internal IT teams, MSPs and homelabbers. Track hardware, software licences, warranties, stock and assignments, with devices synced in from Microsoft Intune and Jamf, and know where everything is.
 
-Tagaris runs as two containers, the app and PostgreSQL, on a small VPS or a homelab box with about 1 GB of memory. Your data stays on your server: no telemetry, no phone home, and full export at any time.
+Tagaris runs as two containers, the app and PostgreSQL, on a small VPS or a homelab box with about 1 GB of memory. Your data stays on your server: no telemetry, a single switchable daily version check as the only default outbound call, and full export at any time.
 
 This repository holds the deployment files: an example compose file and .env for the standard install, plus a single-container variant. Tagaris itself is a commercial product with a free tier and its source code is not published. Images are on [Docker Hub](https://hub.docker.com/r/goodhallsolutions/tagaris).
 
@@ -40,6 +40,7 @@ The full guide, including reverse proxy, storage and upgrades, is at [docs.tagar
 - Accessories, components and consumables with low-stock alerts
 - Photos and attachments (receipts, invoices, manuals) on assets
 - Printable QR label sheets for assets and locations; scan a door, audit a room
+- Tagaris for iOS (iPhone and iPad), [on the App Store](https://apps.apple.com/gb/app/tagaris/id6801475105): scan labels to look up, move and audit assets, or add new ones from the phone (Android in development)
 - CSV import with Snipe-IT and Halo presets, and full export to CSV or JSON at any time
 - Built-in reports with CSV export and print, plus a custom report builder
 - A daily email digest of renewals due, warranty expiries and low stock
@@ -52,7 +53,7 @@ Team features for organisations that need them: multiple users with Admin, Edito
 
 ## Free and paid
 
-The free tier is the full register for a single administrator: no asset limit, no export limit, no trial clock. A Team licence (5, 10, 25 or 50 people) adds the team features above. Keys arrive by email within minutes of checkout, activate once, and are then verified offline on your own server; air-gapped installs use a licence file with no internet at all. Pricing is at [tagaris.co.uk](https://tagaris.co.uk).
+The free tier is the full register for a single administrator: no asset limit, no export limit, no trial clock. A Team licence (5, 10, 25 or 50 people) adds the team features above. Keys arrive by email within minutes of checkout, activate once, and are then verified offline on your own server; air-gapped installs use a licence file with no internet at all. Team is free to try for 30 days (five seats, no card): request a key with your work email on the [pricing page](https://tagaris.co.uk/pricing.html).
 
 ## Updating
 
@@ -73,8 +74,9 @@ Bug reports and feature requests are welcome in [issues](https://github.com/good
 - Website and pricing: https://tagaris.co.uk
 - Live demo: https://demo.tagaris.co.uk
 - Documentation: https://docs.tagaris.co.uk
-- Docker Hub Standard: https://hub.docker.com/r/goodhallsolutions/tagaris
-- Docker Hub Bundled: https://hub.docker.com/r/goodhallsolutions/tagaris-bundled
+- iOS app (iPhone and iPad): https://apps.apple.com/gb/app/tagaris/id6801475105
+- Docker Hub: https://hub.docker.com/r/goodhallsolutions/tagaris
+
 ## Licence
 
 The deployment files in this repository may be freely copied and adapted. The Tagaris application is proprietary software from Goodhall Solutions; the free tier is licensed for use at no charge, and paid tiers add the team features. See [LICENSE](LICENSE) and the full terms at https://tagaris.co.uk/terms.html.
