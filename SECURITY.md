@@ -15,8 +15,10 @@ sharing it publicly.
 
 ## How Tagaris is built for security
 
-- **Self-hosted, no phone home.** The app runs on your infrastructure. It verifies
-  its licence offline and does not send your asset data to us.
+- **Self-hosted, no telemetry.** The app runs on your infrastructure, verifies its
+  licence offline and never sends your asset data to us. Its one default outbound
+  call is a daily check for a newer version (the version number only), which can
+  be switched off.
 - **Access control.** Roles (SuperAdmin, Admin, Editor, Viewer) are enforced by a
   central least-privilege check on the server, not just hidden in the UI.
 - **Authentication.** Email and password with optional two-factor (an
